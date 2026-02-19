@@ -1,13 +1,13 @@
 baseURL = "https://friendly-praline-35ae31.netlify.app/"
 languageCode = "en-us"
-title = "Your Name | Geospatial Research"
+title = "Daniel KW | Geo Corner"
 
 
 [params]
-  author = "Your Name"
+  author = "Daniel KW"
   description = "Researcher in Spatial Analytics and Geospatial Science"
-  subtitle = "Spatial Analytics · Geographic Information Science · Remote Sensing"
-  email = "you@email.com"
+  subtitle = "Spatial Analytics · Geographic Information Science · Remote Sensing . Environment"
+  email = "daniel_kassahun@yahoo.com"
   twitter = ""
   github = ""
   linkedin = ""
