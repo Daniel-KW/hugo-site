@@ -1,7 +1,7 @@
 baseURL = "https://yoursite.netlify.app/"
 languageCode = "en-us"
 title = "Your Name | Geospatial Research"
-theme = ""
+
 
 [params]
   author = "Your Name"
