@@ -1,12 +1,6 @@
 [build]
   publish = "public"
-  command = "hugo --minify"
+  command = "hugo"
 
 [build.environment]
-  HUGO_VERSION = "0.128.0"
-
-[[plugins]]
-  package = "@netlify/plugin-hugo"
-
-[context.production.environment]
-  HUGO_ENV = "production"
+  HUGO_VERSION = "0.121.0"
