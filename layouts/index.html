@@ -1,0 +1,56 @@
+{{ define "main" }}
+<div class="home-hero">
+  <div class="home-bio">
+    <div class="page-header" style="border-bottom: none; margin-bottom: 1rem; padding-bottom: 0;">
+      <div class="label">Researcher · Geospatial Science</div>
+      <h1>{{ .Site.Params.author | default "Your Name" }}</h1>
+    </div>
+    <p class="lead">{{ .Content }}</p>
+  </div>
+  <div>
+    <div class="hero-avatar">
+      {{ if .Site.Params.avatar }}
+        <img src="{{ .Site.Params.avatar }}" alt="{{ .Site.Params.author }}" />
+      {{ else }}
+        ◈
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+<div class="section-rule">Recent Research</div>
+
+<div class="articles-grid">
+  {{ $research := where .Site.RegularPages "Section" "research" }}
+  {{ range first 3 $research }}
+  <article class="article-card">
+    <div class="card-meta">
+      <span>{{ .Date.Format "Jan 2006" }}</span>
+      <span class="tag">Research</span>
+      {{ range first 1 .Params.tags }}<span>{{ . }}</span>{{ end }}
+    </div>
+    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    <p class="summary">{{ .Summary }}</p>
+    <a href="{{ .Permalink }}" class="read-more">Read Article →</a>
+  </article>
+  {{ end }}
+</div>
+
+{{ $opinions := where .Site.RegularPages "Section" "opinions" }}
+{{ if $opinions }}
+<div class="section-rule" style="margin-top: 3rem;">Recent Opinions</div>
+<div class="articles-grid">
+  {{ range first 2 $opinions }}
+  <article class="article-card">
+    <div class="card-meta">
+      <span>{{ .Date.Format "Jan 2006" }}</span>
+      <span class="tag">Opinion</span>
+    </div>
+    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    <p class="summary">{{ .Summary }}</p>
+    <a href="{{ .Permalink }}" class="read-more">Read More →</a>
+  </article>
+  {{ end }}
+</div>
+{{ end }}
+{{ end }}

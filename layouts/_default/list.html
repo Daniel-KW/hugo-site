@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="page-header">
+  <div class="label">
+    {{ if eq .Section "research" }}Academic Work{{ else if eq .Section "opinions" }}Commentary & Opinion{{ else }}Archive{{ end }}
+  </div>
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}<p class="lead">{{ . }}</p>{{ end }}
+</div>
+
+<div class="articles-grid">
+  {{ range .Pages.ByDate.Reverse }}
+  <article class="article-card">
+    <div class="card-meta">
+      <span>{{ .Date.Format "January 2, 2006" }}</span>
+      {{ if $.Section }}<span class="tag">{{ $.Section | title }}</span>{{ end }}
+      {{ range first 2 .Params.tags }}<span>{{ . }}</span>{{ end }}
+    </div>
+    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    {{ with .Params.journal }}<p style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--accent);margin-bottom:0.5rem;letter-spacing:0.06em;text-transform:uppercase;">{{ . }}</p>{{ end }}
+    <p class="summary">{{ .Summary }}</p>
+    <a href="{{ .Permalink }}" class="read-more">Read {{ if eq $.Section "research" }}Article{{ else }}Opinion{{ end }} →</a>
+  </article>
+  {{ end }}
+</div>
+{{ end }}

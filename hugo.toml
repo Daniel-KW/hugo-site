@@ -1,0 +1,35 @@
+baseURL = "https://yoursite.netlify.app/"
+languageCode = "en-us"
+title = "Your Name | Geospatial Research"
+theme = ""
+
+[params]
+  author = "Your Name"
+  description = "Researcher in Spatial Analytics and Geospatial Science"
+  subtitle = "Spatial Analytics · Geographic Information Science · Remote Sensing"
+  email = "you@email.com"
+  twitter = ""
+  github = ""
+  linkedin = ""
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Research"
+    url = "/research/"
+    weight = 2
+  [[menu.main]]
+    name = "Opinion"
+    url = "/opinions/"
+    weight = 3
+  [[menu.main]]
+    name = "CV"
+    url = "/cv/"
+    weight = 4
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"

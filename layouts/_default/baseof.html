@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Params.author }}{{ end }}</title>
+  <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+  <div class="site-wrapper">
+
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <a href="/" class="site-title">{{ .Site.Params.author | default "Your Name" }}</a>
+        <p class="site-subtitle">{{ .Site.Params.subtitle }}</p>
+      </div>
+      <div class="map-deco" aria-hidden="true"></div>
+      <nav>
+        <ul>
+          {{ range .Site.Menus.main }}
+          <li>
+            <a href="{{ .URL }}"
+               class="{{ if eq $.RelPermalink .URL }}active{{ end }}">
+              {{ .Name }}
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        {{ with .Site.Params.email }}<a href="mailto:{{ . }}">{{ . }}</a><br>{{ end }}
+        {{ with .Site.Params.github }}<a href="https://github.com/{{ . }}" target="_blank">github.com/{{ . }}</a><br>{{ end }}
+        {{ with .Site.Params.linkedin }}<a href="https://linkedin.com/in/{{ . }}" target="_blank">linkedin</a><br>{{ end }}
+        <br>
+        Geospatial Research<br>
+        Spatial Analytics
+      </div>
+    </aside>
+
+    <main class="main-content">
+      {{ block "main" . }}{{ end }}
+    </main>
+
+  </div>
+</body>
+</html>
